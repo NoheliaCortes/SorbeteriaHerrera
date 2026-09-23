@@ -1,0 +1,772 @@
+:root {
+            --color-primario: #00C296;
+            --color-coral: #FA897B;
+            --color-amarillo: #F4C542;
+            --color-lila: #CCABD8;
+            
+            --color-fondo: #FFFDF7;
+            --color-blanco: #FFFFFF;
+            --color-texto-principal: #4A3B32;
+            --color-texto-suave: #8D7B6E;
+            --color-sombra: rgba(74, 59, 50, 0.08);
+            
+            --fuente-titulos: 'Fredoka', sans-serif;
+            --fuente-acento: 'Pacifico', cursive;
+            --fuente-cuerpo: 'Nunito', sans-serif;
+
+            --radio-borde-grande: 20px;
+            --radio-borde-pequeno: 12px;
+            --contenedor-ancho: 1200px;
+            --espaciado-vertical: clamp(3rem, 6vw, 5rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-fondo);
+            color: var(--color-texto-principal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--fuente-titulos);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: var(--contenedor-ancho);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Animaciones */
+        @keyframes aparecer-arriba {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .elemento-aparece {
+            animation: aparecer-arriba 0.8s ease-out forwards;
+        }
+
+        .animacion-flotante {
+            animation: flotar 4s ease-in-out infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Botones Globales */
+        .boton {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: var(--fuente-titulos);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .boton:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .boton:focus {
+            outline: 3px solid var(--color-amarillo);
+            outline-offset: 2px;
+        }
+
+        .boton-primario {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            box-shadow: 0 4px 15px rgba(0, 194, 150, 0.3);
+        }
+
+        .boton-secundario {
+            background-color: var(--color-blanco);
+            color: var(--color-primario);
+            border: 2px solid var(--color-primario);
+        }
+
+        /* ========================================
+           INICIO: ENCABEZADO
+        ========================================= */
+        .encabezado {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            background-color: rgba(255, 253, 247, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px var(--color-sombra);
+        }
+
+        .encabezado-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-marca {
+            font-family: var(--fuente-titulos);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-texto-principal);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-marca span {
+            color: var(--color-primario);
+        }
+
+        .navegacion-menu {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .enlace-nav {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-texto-principal);
+            position: relative;
+        }
+
+        .enlace-nav::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-amarillo);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .enlace-nav:hover::after,
+        .enlace-nav.activo::after {
+            width: 100%;
+        }
+
+        .enlace-nav.activo {
+            color: var(--color-primario);
+        }
+
+        .menu-movil-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--color-texto-principal);
+        }
+
+        @media (max-width: 768px) {
+            .navegacion-menu {
+                display: none;
+            }
+            .menu-movil-toggle {
+                display: block;
+            }
+        }
+        /* ========================================
+           FIN: ENCABEZADO
+        ========================================= */
+
+        /* ========================================
+           INICIO: HERO DE SABORES
+        ========================================= */
+        .seccion-hero-sabores {
+            padding: clamp(3rem, 8vw, 5rem) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fff8e1 0%, var(--color-fondo) 100%);
+        }
+
+        .titulo-hero-sabores {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--color-texto-principal);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .titulo-hero-sabores span {
+            color: var(--color-coral);
+            font-family: var(--fuente-acento);
+            font-weight: 400;
+        }
+
+        .subtitulo-hero-sabores {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--color-texto-suave);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Elementos decorativos */
+        .decoracion-hero {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .dec-hero-1 {
+            top: 10%;
+            left: 5%;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-amarillo);
+            border-radius: 50%;
+        }
+
+        .dec-hero-2 {
+            bottom: 15%;
+            right: 8%;
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-lila);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+
+        .dec-hero-3 {
+            top: 20%;
+            right: 15%;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-coral);
+            border-radius: 50%;
+        }
+        /* ========================================
+           FIN: HERO DE SABORES
+        ========================================= */
+
+        /* ========================================
+   INICIO: NAVEGACIÓN ENTRE LÍNEAS (ESCRITORIO)
+========================================= */
+.navegacion-lineas {
+    padding: 0.75rem 0;
+    background-color: var(--color-blanco);
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contenedor-lineas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.enlace-linea {
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.enlace-linea:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-sombra);
+}
+
+.enlace-linea:focus {
+    outline: 3px solid var(--color-amarillo);
+    outline-offset: 2px;
+}
+
+/* Variaciones de color por línea (Hover) */
+.enlace-linea-tradicional:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.enlace-linea-light:hover {
+    background-color: var(--color-lila);
+    color: var(--color-blanco);
+}
+
+.enlace-linea-nieves:hover {
+    background-color: var(--color-amarillo);
+    color: var(--color-texto-principal);
+}
+
+.enlace-linea-fantasia:hover {
+    background-color: var(--color-coral);
+    color: var(--color-blanco);
+}
+
+/* ========================================
+   RESPONSIVE: OPTIMIZACIÓN MÓVIL (<= 768px)
+========================================= */
+@media (max-width: 768px) {
+    .navegacion-lineas {
+        padding: 0.6rem 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .contenedor-lineas {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 1rem;
+        gap: 0.6rem;
+        
+        /* Desplazamiento fluido */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        
+        /* Ocultar barra de scroll en navegadores */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .contenedor-lineas::-webkit-scrollbar {
+        display: none; /* Chrome, Safari y Edge */
+    }
+
+    .enlace-linea {
+        padding: 7px 16px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        
+        /* Mejor contraste de los chips sobre la barra */
+        background-color: #f3f4f6;
+        border: 1px solid #e5e7eb;
+    }
+
+    /* Espaciador final para evitar que la última opción quede cortada */
+    .contenedor-lineas::after {
+        content: '';
+        padding-right: 1rem;
+    }
+}
+/* ========================================
+   FIN: NAVEGACIÓN ENTRE LÍNEAS
+========================================= */
+
+        /* ========================================
+           INICIO: SECCIONES DE LÍNEAS
+        ========================================= */
+        .seccion-linea {
+            padding: var(--espaciado-vertical) 0;
+            position: relative;
+        }
+
+        .seccion-linea:nth-child(even) {
+            background-color: var(--color-blanco);
+        }
+
+        .encabezado-linea {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .numero-linea {
+            font-family: var(--fuente-acento);
+            font-size: clamp(3rem, 8vw, 5rem);
+            opacity: 0.15;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .titulo-linea {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--color-texto-principal);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .descripcion-linea {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--color-texto-suave);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Variaciones de color por línea */
+        .seccion-linea-tradicional .titulo-linea {
+            color: var(--color-primario);
+        }
+
+        .seccion-linea-light .titulo-linea {
+            color: var(--color-lila);
+        }
+
+        .seccion-linea-nieves .titulo-linea {
+            color: var(--color-amarillo);
+        }
+
+        .seccion-linea-fantasia .titulo-linea {
+            color: var(--color-coral);
+        }
+
+
+        /* ========================================
+           FIN: SECCIONES DE LÍNEAS
+        ========================================= */
+
+       /* ========================================
+   INICIO: GRILLA DE SABORES
+========================================= */
+.grilla-sabores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .grilla-sabores {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grilla-sabores {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem; /* Espaciado uniforme para 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .grilla-sabores {
+        grid-template-columns: repeat(2, 1fr); /* Mantiene 2 columnas en móviles */
+        gap: 0.6rem; /* Espacio reducido entre tarjetas */
+        margin-top: 1rem;
+    }
+}
+/* ========================================
+   FIN: GRILLA DE SABORES
+========================================= */
+
+/* ========================================
+   INICIO: TARJETAS DE SABORES
+========================================= */
+.tarjeta-sabor {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio-borde-grande);
+    overflow: hidden;
+    box-shadow: 0 6px 20px var(--color-sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-sabor:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.tarjeta-sabor:focus-within {
+    outline: 3px solid var(--color-amarillo);
+    outline-offset: 2px;
+}
+
+.contenedor-imagen-sabor {
+    width: 100%;
+    height: clamp(180px, 20vw, 220px);
+    overflow: hidden;
+    position: relative;
+}
+
+.imagen-sabor {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-sabor:hover .imagen-sabor {
+    transform: scale(1.05);
+}
+
+.contenido-tarjeta-sabor {
+    padding: clamp(1rem, 2vw, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.nombre-sabor {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--color-texto-principal);
+    margin-bottom: 0.5rem;
+}
+
+.descripcion-sabor {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    color: var(--color-texto-suave);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.presentaciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.etiqueta-presentacion {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Variaciones de color por línea */
+.seccion-linea-tradicional .etiqueta-presentacion {
+    background-color: rgba(0, 194, 150, 0.1);
+    color: var(--color-primario);
+}
+
+.seccion-linea-light .etiqueta-presentacion {
+    background-color: rgba(204, 171, 216, 0.2);
+    color: #7B5EA7;
+}
+
+.seccion-linea-nieves .etiqueta-presentacion {
+    background-color: rgba(244, 197, 66, 0.2);
+    color: #B8941F;
+}
+
+.seccion-linea-fantasia .etiqueta-presentacion {
+    background-color: rgba(250, 137, 123, 0.15);
+    color: var(--color-coral);
+}
+
+/* ========================================
+   RESPONSIVE MÓVIL (COMPACTACIÓN DE TARJETAS)
+========================================= */
+@media (max-width: 480px) {
+    .contenedor-imagen-sabor {
+        height: 110px; /* Reducción de la altura de imagen en móviles */
+    }
+
+    .contenido-tarjeta-sabor {
+        padding: 0.6rem; /* Padding interno más ajustado */
+    }
+
+    .nombre-sabor {
+        font-size: 0.95rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .descripcion-sabor {
+        font-size: 0.75rem;
+        line-height: 1.25;
+        margin-bottom: 0.5rem;
+    }
+
+    .presentaciones {
+        gap: 0.25rem;
+    }
+
+    .etiqueta-presentacion {
+        padding: 2px 6px;
+        font-size: 0.7rem;
+    }
+}
+/* ========================================
+   FIN: TARJETAS DE SABORES
+========================================= */
+        /* ========================================
+           INICIO: CTA FINAL
+        ========================================= */
+        .seccion-cta-final {
+            padding: var(--espaciado-vertical) 0;
+            background: linear-gradient(135deg, var(--color-primario) 0%, #00a882 100%);
+            color: var(--color-blanco);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-decoracion {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .cta-dec-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .cta-dec-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -30px;
+            right: 10%;
+        }
+
+        .contenido-cta {
+            position: relative;
+            z-index: 2;
+        }
+
+        .titulo-cta {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--color-blanco);
+        }
+
+        .texto-cta {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .boton-cta {
+            background-color: var(--color-blanco);
+            color: var(--color-primario);
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+
+        .boton-cta:hover {
+            background-color: var(--color-amarillo);
+            color: var(--color-texto-principal);
+        }
+        /* ========================================
+           FIN: CTA FINAL
+        ========================================= */
+
+        /* ========================================
+           INICIO: FOOTER
+        ======================================== */
+        .pie-pagina {
+            background-color: var(--color-texto-principal);
+            color: var(--color-blanco);
+            padding: 3rem 0 2rem 0;
+            text-align: center;
+        }
+
+        .logo-footer {
+            font-family: var(--fuente-acento);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--color-amarillo);
+        }
+
+        .frase-footer {
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .redes-sociales {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .icono-social {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .icono-social:hover {
+            background-color: var(--color-primario);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        /* ========================================
+           FIN: FOOTER
+        ======================================== */
