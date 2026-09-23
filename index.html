@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorbetería Herrera | 70 Años de Tradición Nicaragüense</title>
+    
+    <!-- Fuentes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+    <!-- 1. ENCABEZADO -->
+    <header class="encabezado" id="inicio">
+        <div class="contenedor encabezado-contenido">
+            <a href="#" class="logo-marca">
+                Sorbetería <span>Herrera</span>
+            </a>
+            <div class="menu-movil-toggle" onclick="alternarMenu()">☰</div>
+            <nav class="navegacion-menu" id="nav-menu">
+                <a href="#inicio" class="enlace-nav">Inicio</a>
+                <a href="#productos" class="enlace-nav">Sabores</a>
+                <a href="#nosotros" class="enlace-nav">Historia</a>
+                <a href="#contacto" class="enlace-nav">Contacto</a>
+                <a href="#productos" class="boton boton-nav-cta">Ver Sabores</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO -->
+    <section class="seccion-hero">
+        <!-- Elementos decorativos flotantes -->
+        
+        <div class="contenedor grid-hero">
+            <div class="contenido-texto-hero elemento-aparece">
+                <span class="etiqueta-tradicion">Orgullo Nicaragüense</span>
+                <h1 class="titulo-hero">
+                    Más de <span class="numero-destacado">70</span> años creando sonrisas frescas.
+                </h1>
+                <p class="subtitulo-hero">
+                    Descubre el sabor auténtico de nuestros sorbetes artesanales. Recetas familiares, frutas naturales y la tradición que nos une desde 1956.
+                </p>
+                <div class="grupo-botones-hero">
+                    <a href="#productos" class="boton boton-primario">Descubre nuestros sabores</a>
+                    <a href="#nosotros" class="boton boton-secundario">Nuestra Historia</a>
+                </div>
+            </div>
+            <div class="contenedor-imagen-hero elemento-aparece">
+                <div class="forma-blob-hero"></div>
+                <!-- Imagen placeholder de alta calidad -->
+                <img src="/images/hero3.png" alt="Sorbetes artesanales de colores" class="imagen-principal-hero">
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinta de sabores en marquesina -->
+  <div class="cinta-sabores" aria-hidden="true">
+    <div class="cinta-pista">
+      <span class="cinta-grupo">
+        Fresa de temporada <span class="separador">✦</span>
+        Pistacho de Bronte <span class="separador">✦</span>
+        Mantecado de la abuela <span class="separador">✦</span>
+        Limón y albahaca <span class="separador">✦</span>
+        Chocolate 70% <span class="separador">✦</span>
+        Nata de obrador <span class="separador">✦</span>
+        Mango vegano <span class="separador">✦</span>
+        Turrón de Jijona <span class="separador">✦</span>
+      </span>
+      <span class="cinta-grupo">
+        Fresa de temporada <span class="separador">✦</span>
+        Pistacho de Bronte <span class="separador">✦</span>
+        Mantecado de la abuela <span class="separador">✦</span>
+        Limón y albahaca <span class="separador">✦</span>
+        Chocolate 70% <span class="separador">✦</span>
+        Nata de obrador <span class="separador">✦</span>
+        Mango vegano <span class="separador">✦</span>
+        Turrón de Jijona <span class="separador">✦</span>
+      </span>
+    </div>
+  </div>
+
+
+    <!-- 3. PRODUCTOS -->
+    <section id="productos" class="seccion-productos">
+        <!-- Onda SVG decorativa -->
+        <div class="onda-divisoria">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="relleno-forma"></path>
+            </svg>
+        </div>
+
+        <div class="contenedor">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Un sabor para <span>cada momento</span></h2>
+                <p style="color: var(--color-texto-suave); max-width: 600px; margin: 0 auto;">
+                    Desde los clásicos que enamoran hasta las nuevas creaciones de temporada. Todo hecho con amor y paciencia.
+                </p>
+            </div>
+
+            <div class="carrusel-productos">
+                <!-- Tarjeta 1 -->
+                <article class="tarjeta-sabor">
+                    <div class="contenedor-imagen-tarjeta">
+                        <span class="etiqueta-categoria">Clásicos</span>
+                        <img src="/images/Trad.png" alt="Sorbetes Frutales">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3 class="titulo-sabor">Frutales Tradicionales</h3>
+                        <p class="desc-sabor">El sabor puro de Nicaragua. Mango, Tamarindo, Guanábana y Maracuyá.</p>
+                        <a href="#" class="boton boton-secundario" style="padding: 8px 20px; font-size: 0.85rem;">Ver detalles</a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2 -->
+                <article class="tarjeta-sabor">
+                    <div class="contenedor-imagen-tarjeta">
+                        <span class="etiqueta-categoria">Favoritos</span>
+                        <img src="/images/light.png" alt="Especialidades">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3 class="titulo-sabor">Especialidades Herrera</h3>
+                        <p class="desc-sabor">Nuestras recetas secretas. Cremosos, intensos y llenos de nostalgia.</p>
+                        <a href="#" class="boton boton-secundario" style="padding: 8px 20px; font-size: 0.85rem;">Ver detalles</a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 3 -->
+                <article class="tarjeta-sabor">
+                    <div class="contenedor-imagen-tarjeta">
+                        <span class="etiqueta-categoria">Nuevos</span>
+                        <img src="/images/nieves.png" alt="Temporada">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3 class="titulo-sabor">Edición de Temporada</h3>
+                        <p class="desc-sabor">Sabores limitados que cambian con la cosecha. ¡Pruébalos antes de que se acaben!</p>
+                        <a href="#" class="boton boton-secundario" style="padding: 8px 20px; font-size: 0.85rem;">Ver detalles</a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 4 -->
+                <article class="tarjeta-sabor">
+                    <div class="contenedor-imagen-tarjeta">
+                        <span class="etiqueta-categoria">Light</span>
+                        <img src="/images/fantasia.png" alt="Línea Vitalidad">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h3 class="titulo-sabor">Línea Vitalidad</h3>
+                        <p class="desc-sabor">Todo el sabor natural, sin azúcar añadida. Frescura consciente.</p>
+                        <a href="#" class="boton boton-secundario" style="padding: 8px 20px; font-size: 0.85rem;">Ver detalles</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN DESTACADA 70 AÑOS -->
+    <section class="seccion-destacada-70">
+        <div class="blobs-fondo">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="contenedor contenido-destacado">
+            <div class="dato-visual">
+                <span class="numero-grande">70+</span>
+                <span class="texto-dato">Años de Historia</span>
+            </div>
+            <div class="separador-vertical"></div>
+            <div class="dato-visual">
+                <span class="numero-grande">100%</span>
+                <span class="texto-dato">Artesanal</span>
+            </div>
+            <div class="separador-vertical"></div>
+            <div class="dato-visual">
+                <span class="numero-grande">4</span>
+                <span class="texto-dato">Generaciones</span>
+            </div>
+            <div class="separador-vertical"></div>
+            <div class="dato-visual">
+                <span class="numero-grande">∞</span>
+                <span class="texto-dato">Momentos Dulces</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SOBRE NOSOTROS -->
+    <section id="nosotros" class="seccion-nosotros">
+        <div class="contenedor grid-nosotros">
+            <div class="contenedor-foto-historia">
+                <div class="marco-foto">
+                    <img src="/images/local.png" alt="Taller artesanal familiar">
+                </div>
+                <div class="sello-flotante animacion-flotante">
+                    <span class="sello-texto-peq">Desde</span>
+                    <span class="sello-numero">1956</span>
+                </div>
+            </div>
+            <div class="texto-nosotros">
+                <span class="etiqueta-tradicion" style="background-color: rgba(250, 137, 123, 0.1); color: var(--color-coral);">Nuestra Esencia</span>
+                <h2>Una tradición que sabe a familia</h2>
+                <p>
+                    Lo que comenzó como un pequeño sueño en el corazón de Nicaragua, hoy es parte de la identidad de miles de familias. En Sorbetería Herrera, no solo hacemos helados; preservamos memorias.
+                </p>
+                <p>
+                    Cada sorbete es elaborado siguiendo los pasos de nuestros abuelos: selección manual de la fruta, tiempos de reposo respetados y, sobre todo, mucho cariño. Somos el sabor de tu infancia y la frescura de tu presente.
+                </p>
+                <a href="#contacto" class="boton boton-acento">Conoce más de nosotros</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROCESO ARTESANAL -->
+    <section class="seccion-proceso">
+        <div class="contenedor">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Hecho con <span>tradición</span></h2>
+                <p style="color: var(--color-texto-suave);">Del campo a tu copa, cuidamos cada detalle.</p>
+            </div>
+            
+            <div class="grid-pasos">
+                <div class="paso-item">
+                    <div class="icono-paso">🍓</div>
+                    <h3 class="titulo-paso">01. Seleccionamos</h3>
+                    <p class="desc-paso">Escogemos las mejores frutas de temporada de productores locales.</p>
+                </div>
+                <div class="paso-item">
+                    <div class="icono-paso">🥣</div>
+                    <h3 class="titulo-paso">02. Preparamos</h3>
+                    <p class="desc-paso">Mezclamos ingredientes naturales siguiendo recetas ancestrales.</p>
+                </div>
+                <div class="paso-item">
+                    <div class="icono-paso">❄️</div>
+                    <h3 class="titulo-paso">03. Elaboramos</h3>
+                    <p class="desc-paso">Proceso lento y artesanal para lograr la textura perfecta.</p>
+                </div>
+                <div class="paso-item">
+                    <div class="icono-paso">😊</div>
+                    <h3 class="titulo-paso">04. Compartimos</h3>
+                    <p class="desc-paso">Servimos felicidad en cada cucharada para crear nuevos recuerdos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+   <!-- 8. CONTACTO REDISEÑADO -->
+<section id="contacto" class="seccion-contacto">
+    <div class="contenedor">
+        <div class="encabezado-seccion">
+            <span class="etiqueta-tradicion" style="background-color: rgba(0, 194, 150, 0.1); color: var(--color-primario);">¿Dónde estamos?</span>
+            <h2 class="titulo-seccion">Ven a probar la <span>tradición</span></h2>
+            <p style="color: var(--color-texto-suave); max-width: 600px; margin: 0 auto;">
+                Te esperamos en nuestra casa para compartir el auténtico sabor nicaragüense con la frescura de siempre.
+            </p>
+        </div>
+
+        <div class="tarjeta-contacto-wrapper">
+            <!-- Bloque de Información -->
+            <div class="info-contacto-detalles">
+                <h3 class="titulo-contacto-bloque">Información de Visita</h3>
+
+                <div class="grid-datos-contacto">
+                    <div class="tarjeta-dato-item">
+                        <div class="icono-dato-insignia">📍</div>
+                        <div class="texto-dato">
+                            <strong>Ubicación</strong>
+                            <p>Sorbetería Herrera, Jinotepe, Carazo, Nicaragua</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-dato-item">
+                        <div class="icono-dato-insignia">🕒</div>
+                        <div class="texto-dato">
+                            <strong>Horarios de Atención</strong>
+                            <p>Lunes a Sábado: 9:00 am - 8:00 pm<br>Domingos: 10:00 am - 6:00 pm</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-dato-item">
+                        <div class="icono-dato-insignia">📞</div>
+                        <div class="texto-dato">
+                            <strong>Atención al Cliente</strong>
+                            <p>+505 2222-0000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.app.goo.gl/SorbeteriaHerrera" target="_blank" rel="noopener noreferrer" class="boton boton-primario boton-ruta-gmaps">
+                    🗺️ Cómo Llegar con Google Maps
+                </a>
+            </div>
+
+            <!-- Mapa Interactivo Integrado -->
+            <div class="mapa-contacto-contenedor">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.7989896209847!2d-86.19598409999999!3d11.849339499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f741cc77855c87f%3A0x3b6d005921fe5aa4!2sSorbeter%C3%ADa%20Herrera!5e0!3m2!1ses-419!2sni!4v1789853770017!5m2!1ses-419!2sni" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 9. FOOTER -->
+    <footer class="pie-pagina">
+        <div class="contenedor">
+            <span class="logo-footer">Sorbetería Herrera</span>
+            <p class="frase-footer">70 años compartiendo sabor, tradición y momentos dulces para toda la familia nicaragüense.</p>
+            
+            <div class="redes-sociales">
+                <a href="#" class="icono-social" aria-label="Facebook">FB</a>
+                <a href="#" class="icono-social" aria-label="Instagram">IG</a>
+                <a href="#" class="icono-social" aria-label="Twitter">TW</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Sorbetería Herrera. Todos los derechos reservados. Hecho con ❤️ en Nicaragua.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script simple para manejar el menú sticky y el toggle móvil
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.encabezado');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        function alternarMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('activo');
+        }
+    </script>
+</body>
+</html>
