@@ -1,92 +1,103 @@
+/* ========================================
+   CATÁLOGO: ENCABEZADO SIMPLIFICADO
+========================================= */
+.encabezado-catalogo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.4s ease;
+    background-color: transparent; /* Transparente al inicio, igual que el home */
+}
 
+/* Estado al hacer scroll (necesita el JS de abajo) */
+.encabezado-catalogo.scrolled {
+    background-color: rgba(255, 253, 247, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px var(--color-sombra);
+    padding: 0.8rem 0;
+}
 
-        /* ========================================
-           INICIO: ENCABEZADO
-        ========================================= */
-        .encabezado {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            background-color: rgba(255, 253, 247, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px var(--color-sombra);
-        }
+/* Reutilizamos tu flexbox original */
+.encabezado-catalogo .encabezado-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .encabezado-contenido {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* El logo es idéntico al de inicio */
+.encabezado-catalogo .logo-marca {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
 
-        .logo-marca {
-            font-family: var(--fuente-titulos);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--color-texto-principal);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+.encabezado-catalogo .logo-marca span {
+    color: var(--color-primario);
+}
 
-        .logo-marca span {
-            color: var(--color-primario);
-        }
+/* Botón de regresar estilizado para combinar con tu marca */
+.enlace-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente-texto, 'Nunito', sans-serif); /* Fallback a Nunito */
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-texto-principal);
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.4); /* Fondo sutil */
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
 
-        .navegacion-menu {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
+/* Efecto hover del botón (usa tu color coral) */
+.enlace-volver:hover {
+    background-color: var(--color-coral);
+    color: #ffffff;
+    border-color: var(--color-coral);
+    transform: translateX(-4px); /* Se mueve a la izquierda, indicando "regresar" */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-        .enlace-nav {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--color-texto-principal);
-            position: relative;
-        }
+.enlace-volver .flecha {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
 
-        .enlace-nav::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background-color: var(--color-amarillo);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
+.enlace-volver:hover .flecha {
+    transform: translateX(-3px); /* La flecha se mueve un poco más que el texto */
+}
 
-        .enlace-nav:hover::after,
-        .enlace-nav.activo::after {
-            width: 100%;
-        }
-
-        .enlace-nav.activo {
-            color: var(--color-primario);
-        }
-
-        .menu-movil-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--color-texto-principal);
-        }
-
-        @media (max-width: 768px) {
-            .navegacion-menu {
-                display: none;
-            }
-            .menu-movil-toggle {
-                display: block;
-            }
-        }
-        /* ========================================
-           FIN: ENCABEZADO
-        ========================================= */
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .encabezado-catalogo .logo-marca {
+        font-size: 1.3rem;
+    }
+    
+    .enlace-volver {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    /* En pantallas muy pequeñas, ocultamos el texto y solo dejamos la flecha o "Volver" */
+    .enlace-volver .texto-volver {
+        display: none; 
+    }
+    .enlace-volver::after {
+        content: 'Volver'; /* Texto más corto para móvil */
+    }
+}
 
         /* ========================================
            INICIO: HERO DE SABORES

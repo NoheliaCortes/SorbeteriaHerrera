@@ -13,21 +13,22 @@
 </head>
 <body>
 
-    <!-- 1. ENCABEZADO -->
-    <header class="encabezado">
-        <div class="contenedor encabezado-contenido">
-            <a href="#" class="logo-marca">
-                Sorbetería <span>Herrera</span>
-            </a>
-            <div class="menu-movil-toggle">☰</div>
-            <nav class="navegacion-menu">
-                <a href="#" class="enlace-nav">Inicio</a>
-                <a href="#" class="enlace-nav activo">Sabores</a>
-                <a href="#" class="enlace-nav">Nosotros</a>
-                <a href="#" class="enlace-nav">Contacto</a>
-            </nav>
-        </div>
-    </header>
+    <!-- ====== ENCABEZADO CATÁLOGO (Estilo Inicio Simplificado) ====== -->
+<header class="encabezado-catalogo" id="encabezado-catalogo">
+    <div class="contenedor encabezado-contenido">
+        <!-- Mismo logo que en el inicio -->
+        <a href="index.html" class="logo-marca">
+            Sorbetería <span>Herrera</span>
+        </a>
+        
+        <!-- Botón de regreso estilizado -->
+        <a href="index.html" class="enlace-volver">
+            <span class="flecha">←</span> 
+            <span class="texto-volver">Volver al Inicio</span>
+        </a>
+    </div>
+</header>
+<!-- ====== FIN ENCABEZADO ====== -->
 
     <main>
         <!-- 2. HERO DE SABORES -->
@@ -498,6 +499,21 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    // Efecto de scroll en el encabezado del catálogo
+    const encabezadoCatalogo = document.getElementById('encabezado-catalogo');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            encabezadoCatalogo.classList.add('scrolled');
+        } else {
+            encabezadoCatalogo.classList.remove('scrolled');
+        }
+    });
+</script>
+
+
 
 </body>
 </html>
