@@ -103,7 +103,8 @@
            INICIO: HERO DE SABORES
         ========================================= */
         .seccion-hero-sabores {
-            padding: clamp(3rem, 8vw, 5rem) 0;
+            margin-top: 60px; /* Ajuste para el encabezado fijo */
+            padding: clamp(2rem, 5vw, 3rem) 0 clamp(1rem, 3vw, 1.5rem) 0;
             text-align: center;
             position: relative;
             overflow: hidden;
